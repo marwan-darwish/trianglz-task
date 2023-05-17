@@ -70,7 +70,7 @@
                         <a class="mx-2 text-green-400 cursor-pointer" [routerLink]="['/dashboard/books/edit',book['id']]">
                             <fa-icon [icon]="Icons[1]"></fa-icon>
                         </a>
-                        <a class="mx-2 text-red-600 cursor-pointer" (click)="openConfirmDelete(book['id'],i,book['photoRef']!)">
+                        <a class="mx-2 text-red-600 cursor-pointer" (click)="openConfirmDelete(book['id'],book['photoRef']!)">
                             <fa-icon [icon]="Icons[2]"></fa-icon>
                         </a>
                     </td>
@@ -129,7 +129,7 @@
                         <a class="mx-2 text-green-400 cursor-pointer" [routerLink]="['/dashboard/books/edit',book['id']]">
                             <fa-icon [icon]="Icons[1]"></fa-icon>
                         </a>
-                        <a class="mx-2 text-red-600 cursor-pointer" (click)="openConfirmDelete(book['id'],i,book['photoRef']!)">
+                        <a class="mx-2 text-red-600 cursor-pointer" (click)="openConfirmDelete(book['id'],book['photoRef']!)">
                             <fa-icon [icon]="Icons[2]"></fa-icon>
                         </a>
                     </td>

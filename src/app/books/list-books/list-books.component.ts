@@ -67,7 +67,7 @@ export class ListBooksComponent implements OnInit {
     this.searchPaginationOptions.totalItems=0;
     this.bookService.searchBooks('title',this.searchValue.value).pipe(map((res) => {
       const data= this.mapData(res).filter((obj)=>{
-        return obj.title===this.searchValue.value||obj.author===this.searchValue.value
+        return obj.title===this.searchValue.value||obj.title.includes(this.searchValue.value)
       })
       console.log(data);
       this.filteredBook.push(...data)
@@ -80,7 +80,6 @@ export class ListBooksComponent implements OnInit {
             const data= this.mapData(res).filter((obj)=>{
               return obj.author===this.searchValue.value
             })
-            console.log(data);
             
             this.filteredBook.push(...data)
   
@@ -108,7 +107,7 @@ export class ListBooksComponent implements OnInit {
 
   }
 
-  openConfirmDelete(id:string | undefined,index:number,photoRef:string){
+  openConfirmDelete(id:string | undefined,photoRef:string){
       const bookID=id;
       const ModalData: confirmationModal = {
         title: {
@@ -139,14 +138,7 @@ export class ListBooksComponent implements OnInit {
                       const storageRef= this.storage.ref(photoRef);
                        storageRef.delete().subscribe()                      
                       this.dialog.closeAll();
-                      // if(filter){
-                      //   this.filteredBook.splice(index,1);
-                      //   this.filteredBook=this.filteredBook;
-                      //   this.getAllBooks();
-                      // }else{
-                      //   this.books.splice(index,1);
-                      //   this.books=this.books;
-                      // }
+                    
                     this.getAllBooks()
                     if(this.paginationOptions.currentPage!==1){
                       this.paginationOptions.currentPage--

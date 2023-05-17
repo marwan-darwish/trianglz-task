@@ -29,7 +29,7 @@
                 <div class="my-4">
                     <mat-form-field appearance="fill" class="w-full">
                         <mat-label>Book Price</mat-label>
-                        <input maxlength="2" formControlName="price" type="text" matInput placeholder="ex:35$">
+                        <input maxlength="3" formControlName="price" type="text" matInput placeholder="ex:35$">
                             <mat-error *ngIf="BookForm.controls['price'].errors?BookForm.controls['price'].errors['required']:false">
                                 Price is required
                             </mat-error>
