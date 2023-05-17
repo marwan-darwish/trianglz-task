@@ -6,16 +6,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import{HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { DashboardComponet } from './books/dashboardcomponent';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { AddBookComponent } from './books/add-book/add-book.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ViewBookComponent } from './books/view-book/view-book.component';
 import { AngularFireModule } from '@angular/fire/compat';
-import { firebaseSettings } from 'src/firebaseSettings/firebaseSettings';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
+import { firebaseSettings } from 'src/environments/environments';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { ListBooksComponent } from './books/list-books/list-books.component';
 import { ConfirmationModalComponent } from './shared/pop ups/confirmation-modal/confirmation-modal.component';
 import { MultiSelectChipsComponent } from './shared/multi-select-chips/multi-select-chips.component';
@@ -32,7 +32,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     ListBooksComponent,
     ConfirmationModalComponent,
     MultiSelectChipsComponent,
-    EditBookComponent
+    EditBookComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,9 +45,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     AngularFireModule.initializeApp(firebaseSettings.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
