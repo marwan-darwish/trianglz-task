@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { firebaseSettings } from 'src/environments/environments';
+import { environment } from 'src/environments/environment';
 import { StorageService } from './storage.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, from, of } from 'rxjs';
@@ -9,7 +9,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providedIn: 'root',
 })
 export class AuthService {
-  APIKEY: string = firebaseSettings.AcoreAPIKEY;
+  APIKEY: string = environment.AcoreAPIKEY;
   isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   loggedInCopy = this.isLoggedIn.asObservable();
   loginSpinner: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);

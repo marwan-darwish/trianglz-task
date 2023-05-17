@@ -1,5 +1,5 @@
 
-export const firebaseSettings = {
+export const environment = {
   AcoreAPIKEY:"AIzaSyAfK6BssxRTiU3mNQEzL7jz0PcRZbs7sPg",
   host:"books-7dee0.firebaseapp.com",
   firebaseConfig : {
