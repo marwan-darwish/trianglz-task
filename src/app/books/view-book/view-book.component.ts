@@ -4,9 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
-import { Subscription } from 'rxjs';
-import { Book } from 'src/app/models/book.model';
-import { confirmationModal } from 'src/app/models/confirmation.modal';
+import { Book } from 'src/app/interfaces/book.model';
+import { confirmationModal } from 'src/app/interfaces/confirmation.modal';
 import { BookService } from 'src/app/services/book.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { ConfirmationModalComponent } from 'src/app/shared/pop ups/confirmation-modal/confirmation-modal.component';
@@ -20,7 +19,6 @@ export class ViewBookComponent implements OnInit{
   bookID:string | undefined='';
   photoRef:string | undefined ='';
   Icons:IconDefinition[]=[faBookmark];
-  subscriptions$:Subscription[]=[];
   constructor(private storage:AngularFireStorage,private activatedRoute:ActivatedRoute,private bookService:BookService,private dialog:MatDialog,private modalService:ModalService,private router:Router) { }
  
 
@@ -70,12 +68,6 @@ export class ViewBookComponent implements OnInit{
                     
                     this.dialog.closeAll();
 
-                    // this._snackBar.open('book has been delted','',{
-                    //   panelClass:'loginFailed',
-                    //   horizontalPosition:'right',
-                    //   verticalPosition:'top',
-                    //   duration:2000
-                    // })
                     this.router.navigate(['/dashboard/books'])
                 })
               }

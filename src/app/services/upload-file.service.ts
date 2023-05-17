@@ -8,7 +8,6 @@ export class UploadFileService {
   
   constructor( private storage: AngularFireStorage) { }
   async uploadFile(_file:File) {
-    // const onFileUpladed$:BehaviorSubject<string>=new BehaviorSubject<string>('');
     const file = _file;
     const filePath = `uploads/${new Date().getTime()}_${file.name}`;
     const fileRef = this.storage.ref(filePath);

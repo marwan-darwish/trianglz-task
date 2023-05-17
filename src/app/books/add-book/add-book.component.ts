@@ -1,10 +1,8 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
-import { BehaviorSubject } from 'rxjs';
-
 import { BookService } from 'src/app/services/book.service';
 import { UploadFileService } from 'src/app/services/upload-file.service';
 
@@ -39,7 +37,7 @@ notificationforSuccessfulUpload:boolean=false
     'title':new FormControl('',[Validators.required]),
     'author':new FormControl('',[Validators.required]),
     'category':new FormControl([],[Validators.required]),
-    'price':new FormControl('',[Validators.required,Validators.pattern(/^[0-9]+$/),Validators.maxLength(2)]),
+    'price':new FormControl('',[Validators.required,Validators.pattern(/^[0-9]+$/),Validators.maxLength(3)]),
     'version':new FormControl('',[Validators.required]),
     'ISBN':new FormControl('',[Validators.required,Validators.pattern(/^[\d-]{10,13}$/)]),
     'photo':new FormControl('',Validators.required),
@@ -72,7 +70,6 @@ notificationforSuccessfulUpload:boolean=false
 
   onUploadFile(e:any){
     this.uploadFile.uploadFile(e.target.files[0]).then((res)=>{
-      console.log(res)
         this.coverImage=res.downloadUrl;
         this.fileRef=res.filePath;
         this.BookForm.controls['photo'].setValue(this.coverImage);
@@ -82,9 +79,9 @@ notificationforSuccessfulUpload:boolean=false
           this.notificationforSuccessfulUpload=false
 
         }, 2000);
-        // this._snackbar.open('file has been uploaded','',{duration:2000,horizontalPosition:'right',verticalPosition:'top'})
     }).catch((err)=>{
-      // this._snackbar.open('failed to upload File','',{duration:2000,horizontalPosition:'right',verticalPosition:'top'})
+console.log(err);
+
     })
     
   }
@@ -139,11 +136,7 @@ notificationforSuccessfulUpload:boolean=false
 
   editBook(formValue:{[key:string]:any}){
     this.bookService.editBook(this.bookID,formValue as any).subscribe((res)=>{
-      // this._snackbar.open('book has been edited successfuly','',{
-      //   duration:2000,
-      //   horizontalPosition:"right",
-      //   verticalPosition:"top",
-      // })
+  
       this.router.navigate(['/dashboard/books',this.bookID]);
    })
   }
@@ -152,11 +145,6 @@ notificationforSuccessfulUpload:boolean=false
     this.bookService.addBook(formValue as any).subscribe((res)=>{
       console.log(res);
       
-      // this._snackbar.open('book has been added successfuly','',{
-      //   duration:2000,
-      //   horizontalPosition:"right",
-      //   verticalPosition:"top"
-      // })
       this.router.navigate(['/dashboard/books']);
     })
   }

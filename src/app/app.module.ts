@@ -14,7 +14,7 @@ import { AddBookComponent } from './books/add-book/add-book.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ViewBookComponent } from './books/view-book/view-book.component';
 import { AngularFireModule } from '@angular/fire/compat';
-import { environment } from 'src/environments/environment';
+import { firebaseSettings } from 'src/firebaseSettings/firebaseSettings';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
 import { ListBooksComponent } from './books/list-books/list-books.component';
 import { ConfirmationModalComponent } from './shared/pop ups/confirmation-modal/confirmation-modal.component';
@@ -42,7 +42,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     ReactiveFormsModule,
     AngularMaterialModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(firebaseSettings.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
     NgxPaginationModule

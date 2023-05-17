@@ -1,15 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BookService } from 'src/app/services/book.service';
-import { Book } from 'src/app/models/book.model';
+import { Book } from 'src/app/interfaces/book.model';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faEye, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationModalComponent } from 'src/app/shared/pop ups/confirmation-modal/confirmation-modal.component';
 import { ModalService } from 'src/app/services/modal.service';
-import { confirmationModal } from 'src/app/models/confirmation.modal';
+import { confirmationModal } from 'src/app/interfaces/confirmation.modal';
 import { FormControl } from '@angular/forms';
-import { Subscription, map } from 'rxjs';
+import { map } from 'rxjs';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
@@ -122,7 +122,7 @@ export class ListBooksComponent implements OnInit {
         actions: [
           {
             value: 'cancel',
-            class: 'border-solid border font-bold text-black',
+            class: 'border-solid border font-bold text-black p-3',
             onClickFn: () => {
               this.dialog.closeAll();
 
@@ -130,7 +130,7 @@ export class ListBooksComponent implements OnInit {
           },
           {
             value: 'Delete',
-            class: 'bg-red-700 text-white',
+            class: 'bg-red-700 text-white p-3',
             onClickFn: () => {
                 this.modalService.loadingSpinner.next(true);
                 if(bookID){
@@ -152,13 +152,6 @@ export class ListBooksComponent implements OnInit {
                       this.paginationOptions.currentPage--
 
                     }
-                      // this._snackBar.open(' deleted','',{
-                      //   panelClass:'loginFailed',
-                      //   horizontalPosition:'right',
-                      //   verticalPosition:'top',
-                      //   duration:2000
-                      
-                      // })
                   })
                 }
             },

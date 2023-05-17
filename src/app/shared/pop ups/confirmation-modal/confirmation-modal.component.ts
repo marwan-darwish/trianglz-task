@@ -1,7 +1,7 @@
 import { Component,OnInit,Inject,ViewEncapsulation, OnDestroy  } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import{MAT_DIALOG_DATA }from '@angular/material/dialog';
-import { confirmationModal } from 'src/app/models/confirmation.modal';
+import { confirmationModal } from 'src/app/interfaces/confirmation.modal';
 import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
