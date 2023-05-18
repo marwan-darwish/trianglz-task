@@ -43,7 +43,7 @@
 
                 </div>
                 <div class="flex gap-4" > 
-                    <button *ngIf="!showSpinner"   [ngClass]="loginForm.invalid?'opacity-30':''"  class="rounded-[1rem] bg-blue p-2 text-white mx-auto md:mx-0 w-[100px]">
+                    <button *ngIf="!showSpinner" [disabled]="loginForm.invalid"  [ngClass]="loginForm.invalid?'opacity-30':''"  class="rounded-[1rem] bg-blue p-2 text-white mx-auto md:mx-0 w-[100px]">
                         Sign in 
                     </button>
                 </div>

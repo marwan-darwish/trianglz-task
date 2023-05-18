@@ -5,7 +5,7 @@ import { Book } from 'src/app/interfaces/book.model';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faEye, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmationModalComponent } from 'src/app/shared/pop ups/confirmation-modal/confirmation-modal.component';
+import { ConfirmationModalComponent } from 'src/app/libs/pop ups/confirmation-modal/confirmation-modal.component';
 import { ModalService } from 'src/app/services/modal.service';
 import { confirmationModal } from 'src/app/interfaces/confirmation.modal';
 import { FormControl } from '@angular/forms';
@@ -78,7 +78,7 @@ export class ListBooksComponent implements OnInit {
         if(!this.filteredBook.length){
           this.bookService.searchBooks('author',this.searchValue.value).pipe(map((res) => {
             const data= this.mapData(res).filter((obj)=>{
-              return obj.author===this.searchValue.value
+              return obj.author===this.searchValue.value||obj.author.includes(this.searchValue.value)
             })
             
             this.filteredBook.push(...data)

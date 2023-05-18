@@ -8,7 +8,7 @@ import { Book } from 'src/app/interfaces/book.model';
 import { confirmationModal } from 'src/app/interfaces/confirmation.modal';
 import { BookService } from 'src/app/services/book.service';
 import { ModalService } from 'src/app/services/modal.service';
-import { ConfirmationModalComponent } from 'src/app/shared/pop ups/confirmation-modal/confirmation-modal.component';
+import { ConfirmationModalComponent } from 'src/app/libs/pop ups/confirmation-modal/confirmation-modal.component';
 @Component({
   selector: 'app-view-book',
   templateUrl: './view-book.component.html',
